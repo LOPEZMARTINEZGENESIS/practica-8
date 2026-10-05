@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura de Sitio Web</title>
+    
+    <!-- Estilos básicos para organizar la estructura -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 1. Estilo del Encabezado */
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 2. Estilo de la Barra de Navegación */
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* 3. Estilo del Cuerpo */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Estilos del Formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input, select, textarea, button {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Mensaje de respuesta del formulario */
+        #mensaje {
+            margin-top: 15px;
+            padding: 10px;
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+        }
+
+        /* 4. Estilo del Pie de Página */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ENCABEZADO -->
+    <header>
+        <h1>Encabezado del Sitio Web</h1>
+    </header>
+
+    <!-- 2. BARRA DE NAVEGACIÓN -->
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sección 1</a></li>
+            <li><a href="#">Sección 2</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- 3. CUERPO DE LA PÁGINA -->
+    <main>
+        <h2>Formulario</h2>
+        
+        <!-- Formulario -->
+        <form id="miFormulario">
+            <div>
+                <label for="nombre">Nombre:</label><br>
+                <input type="text" id="nombre" name="nombre" required style="width: 100%;">
+            </div>
+
+            <div>
+                <label for="correo">Correo Electrónico:</label><br>
+                <input type="email" id="correo" name="correo" required style="width: 100%;">
+            </div>
+
+            <div>
+                <label for="opcion">Selecciona una opción:</label><br>
+                <select id="opcion" name="opcion" required style="width: 100%;">
+                    <option value="">--Seleccionar--</option>
+                    <option value="Opción A">Opción A</option>
+                    <option value="Opción B">Opción B</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="mensajeTexto">Mensaje:</label><br>
+                <textarea id="mensajeTexto" name="mensajeTexto" rows="4" required style="width: 100%;"></textarea>
+            </div>
+
+            <button type="submit">Enviar Formulario</button>
+        </form>
+
+        <!-- Cuadro donde se muestra que el formulario funciona -->
+        <div id="mensaje"></div>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <footer>
+        <p>&copy; Pie de página - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Código que hace funcionar el formulario sin recargar la página -->
+    <script>
+        document.getElementById('miFormulario').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue al enviar
+            
+            // Obtener los datos ingresados
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const opcion = document.getElementById('opcion').value;
+            
+            // Mostrar los datos en pantalla
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.style.display = 'block';
+            mensajeDiv.innerHTML = `<strong>¡Formulario enviado con éxito!</strong><br>
+                                    Nombre: ${nombre}<br>
+                                    Correo: ${correo}<br>
+                                    Opción elegida: ${opcion}`;
+            
+            // Limpiar los campos del formulario
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

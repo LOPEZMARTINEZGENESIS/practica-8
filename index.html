@@ -2,96 +2,86 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estructura de Sitio Web</title>
-    
-    <!-- Estilos básicos para organizar la estructura -->
+    <title>Sitio de Cursos Online</title>
     <style>
+        /* Estilos sencillos para organizar la página */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #f4f4f4;
         }
 
-        /* 1. Estilo del Encabezado */
+        /* Estilo del Encabezado */
         header {
-            background-color: #333;
+            background-color: #0056D2;
             color: white;
+            padding: 15px;
             text-align: center;
-            padding: 20px;
         }
 
-        /* 2. Estilo de la Barra de Navegación */
+        /* Estilo de la Barra de Navegación */
         nav {
-            background-color: #444;
+            background-color: #333;
             padding: 10px;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+            text-align: center;
         }
 
         nav a {
             color: white;
+            margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        /* 3. Estilo del Cuerpo */
+        /* Estilo del Cuerpo principal */
         main {
-            flex: 1;
-            padding: 20px;
-            max-width: 600px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Estilos del Formulario */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background-color: #f4f4f4;
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
             padding: 20px;
             border-radius: 5px;
         }
 
-        input, select, textarea, button {
+        /* Estilo del Formulario */
+        form {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            margin-bottom: 10px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .campo input, .campo select {
+            width: 100%;
             padding: 8px;
-            font-size: 14px;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #28a745;
+            background-color: #0056D2;
             color: white;
             border: none;
+            padding: 10px 15px;
             cursor: pointer;
+            border-radius: 3px;
         }
 
-        /* Mensaje de respuesta del formulario */
-        #mensaje {
-            margin-top: 15px;
-            padding: 10px;
-            display: none;
-            background-color: #d4edda;
-            color: #155724;
-            border-radius: 4px;
-        }
-
-        /* 4. Estilo del Pie de Página */
+        /* Estilo del Footer */
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px;
-            margin-top: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -99,83 +89,70 @@
 
     <!-- 1. ENCABEZADO -->
     <header>
-        <h1>Encabezado del Sitio Web</h1>
+        <h1>Plataforma de Cursos CursosOnline</h1>
     </header>
 
     <!-- 2. BARRA DE NAVEGACIÓN -->
     <nav>
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Sección 1</a></li>
-            <li><a href="#">Sección 2</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
+        <a href="#">Inicio</a>
+        <a href="#">Cursos</a>
+        <a href="#">Contacto</a>
+        <a href="#">Iniciar Sesión</a>
     </nav>
 
-    <!-- 3. CUERPO DE LA PÁGINA -->
+    <!-- 3. CUERPO PRINCIPAL -->
     <main>
-        <h2>Formulario</h2>
         
-        <!-- Formulario -->
-        <form id="miFormulario">
-            <div>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" id="nombre" name="nombre" required style="width: 100%;">
-            </div>
+        <!-- SECCIÓN: FORMULARIO DE INSCRIPCIÓN -->
+        <section>
+            <h2>Formulario de Inscripción al Curso</h2>
+            
+            <form action="#" method="POST">
+                
+                <!-- Campo Nombre -->
+                <div class="campo">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-            <div>
-                <label for="correo">Correo Electrónico:</label><br>
-                <input type="email" id="correo" name="correo" required style="width: 100%;">
-            </div>
+                <!-- Campo Correo -->
+                <div class="campo">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
 
-            <div>
-                <label for="opcion">Selecciona una opción:</label><br>
-                <select id="opcion" name="opcion" required style="width: 100%;">
-                    <option value="">--Seleccionar--</option>
-                    <option value="Opción A">Opción A</option>
-                    <option value="Opción B">Opción B</option>
-                </select>
-            </div>
+                <!-- Campo Selección de Curso -->
+                <div class="campo">
+                    <label for="curso">Selecciona un curso:</label>
+                    <select id="curso" name="curso">
+                        <option value="datos">Análisis de datos</option>
+                        <option value="ia">Inteligencia Artificial</option>
+                        <option value="python">Programación en Python</option>
+                    </select>
+                </div>
 
-            <div>
-                <label for="mensajeTexto">Mensaje:</label><br>
-                <textarea id="mensajeTexto" name="mensajeTexto" rows="4" required style="width: 100%;"></textarea>
-            </div>
+                <!-- Botón para enviar -->
+                <button type="submit">Inscribirse gratis</button>
 
-            <button type="submit">Enviar Formulario</button>
-        </form>
+            </form>
+        </section>
 
-        <!-- Cuadro donde se muestra que el formulario funciona -->
-        <div id="mensaje"></div>
+        <!-- SECCIÓN: LISTA DE CURSOS -->
+        <section>
+            <h2>Cursos disponibles</h2>
+            <ul>
+                <li><strong>Análisis de Datos de Google</strong> - Nivel Principiante</li>
+                <li><strong>IA Generativa con Hugging Face</strong> - Nivel Intermedio</li>
+                <li><strong>Python para Todos</strong> - Nivel Principiante</li>
+            </ul>
+        </section>
+
     </main>
 
-    <!-- 4. FOOTER -->
+    <!-- 4. FOOTER (PIE DE PÁGINA) -->
     <footer>
-        <p>&copy; Pie de página - Todos los derechos reservados</p>
+        <p>&copy; 2026 CursosOnline - Todos los derechos reservados</p>
     </footer>
-
-    <!-- Código que hace funcionar el formulario sin recargar la página -->
-    <script>
-        document.getElementById('miFormulario').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue al enviar
-            
-            // Obtener los datos ingresados
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const opcion = document.getElementById('opcion').value;
-            
-            // Mostrar los datos en pantalla
-            const mensajeDiv = document.getElementById('mensaje');
-            mensajeDiv.style.display = 'block';
-            mensajeDiv.innerHTML = `<strong>¡Formulario enviado con éxito!</strong><br>
-                                    Nombre: ${nombre}<br>
-                                    Correo: ${correo}<br>
-                                    Opción elegida: ${opcion}`;
-            
-            // Limpiar los campos del formulario
-            this.reset();
-        });
-    </script>
 
 </body>
 </html>
